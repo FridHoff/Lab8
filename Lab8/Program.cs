@@ -10,23 +10,23 @@
                 Console.Clear();
                 Console.WriteLine("Выберите задание:");
                 Console.WriteLine("1. (10)Дана строка. Если она начинается на 'abc', то заменить их на 'www', иначе добавить в конец строки 'zzz'");
-                Console.WriteLine("2. ");
-                Console.WriteLine("3. ");
-                Console.WriteLine("4. ");
+                Console.WriteLine("2. (15)Дана строка. Определить, сдержит ли строка только символы 'a', 'b', 'c' или нет");
+                Console.WriteLine("3. (28)");
+                Console.WriteLine("4. (33)");
                 Console.WriteLine("Esc. Выход");
                 choice = Console.ReadKey().Key;
                 switch (choice)
                 {
                     case ConsoleKey.D1:
                         Console.WriteLine();
-                        Task6();
+                        Task10();
                         Console.WriteLine();
                         Console.WriteLine("Для продолжения нажмите любую клавишу...");
                         Console.ReadKey();
                         break;
                     case ConsoleKey.D2:
                         Console.WriteLine();
-                        //Task16();
+                        Task15();
                         Console.WriteLine();
                         Console.WriteLine("Для продолжения нажмите любую клавишу...");
                         Console.ReadKey();
@@ -48,7 +48,7 @@
                 }
             } while (choice != ConsoleKey.Escape);
         }
-        static void Task6()
+        static void Task10()
         {
             Console.WriteLine("Введите строку");
             string str = Console.ReadLine();
@@ -56,6 +56,24 @@
                 Console.WriteLine("www" + str.Substring(3));
             else
                 Console.WriteLine(str + "zzz");
+        }
+        static void Task15()
+        {
+            bool flag = true;
+            Console.WriteLine("Введите строку");
+            string str = Console.ReadLine();
+            foreach (char c in str)
+            {
+                if (c != 'a' && c!='b' && c!='c')
+                {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag)
+                Console.WriteLine("Строка содержит только символы 'a', 'b', 'c'");
+            else
+                Console.WriteLine("Строка содержит не только символы 'a', 'b', 'c'");
         }
     }
 }
