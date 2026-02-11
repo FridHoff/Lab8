@@ -1,4 +1,6 @@
-﻿namespace Lab8
+﻿using System.Runtime.InteropServices;
+
+namespace Lab8
 {
     internal class Program
     {
@@ -11,7 +13,7 @@
                 Console.WriteLine("Выберите задание:");
                 Console.WriteLine("1. (10)Дана строка. Если она начинается на 'abc', то заменить их на 'www', иначе добавить в конец строки 'zzz'");
                 Console.WriteLine("2. (15)Дана строка. Определить, сдержит ли строка только символы 'a', 'b', 'c' или нет");
-                Console.WriteLine("3. (28)");
+                Console.WriteLine("3. (28)Вывести слова, в которых заменить каждую большую букву одноименной малой; удалить все символы, не являющиеся буквами или цифрами; вывести в алфавитном порядке все гласные буквы, входящие в каждое слово строки.");
                 Console.WriteLine("4. (33)");
                 Console.WriteLine("Esc. Выход");
                 choice = Console.ReadKey().Key;
@@ -33,7 +35,7 @@
                         break;
                     case ConsoleKey.D3:
                         Console.WriteLine();
-                        //Task26();
+                        Task28();
                         Console.WriteLine();
                         Console.WriteLine("Для продолжения нажмите любую клавишу...");
                         Console.ReadKey();
@@ -74,6 +76,37 @@
                 Console.WriteLine("Строка содержит только символы 'a', 'b', 'c'");
             else
                 Console.WriteLine("Строка содержит не только символы 'a', 'b', 'c'");
+        }
+        static void Task28()
+        {
+            string vowels = "eyuioaуеаоэяиюёы";
+            Console.WriteLine("Введите строку");
+            string str = Console.ReadLine();
+            string[] words = str.ToLower().Split(' ');            
+            foreach (string word in words)
+            {
+                string result = word;
+                foreach (char c in word)
+                {                    
+                    if (!Char.IsLetterOrDigit(c))
+                        result= result.Replace(c.ToString(), "");                    
+                }
+                Console.Write($"{result} \t");
+            }
+            Console.WriteLine();
+            foreach (string word in words)
+            {
+            string result = "";
+                foreach (char c in word)
+                {                    
+                    if (vowels.Contains(c))
+                        result += c;
+                }                
+                char[] charArray = result.ToCharArray();
+                Array.Sort(charArray);
+                String s = new String(charArray);
+                Console.Write($"{s} \t");
+            }
         }
     }
 }
