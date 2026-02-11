@@ -9,7 +9,7 @@
             {
                 Console.Clear();
                 Console.WriteLine("Выберите задание:");
-                Console.WriteLine("1. (6)Дана строка. Показать третий, шестой, девятый и так далее симовлы");
+                Console.WriteLine("1. (10)Дана строка. Если она начинается на 'abc', то заменить их на 'www', иначе добавить в конец строки 'zzz'");
                 Console.WriteLine("2. ");
                 Console.WriteLine("3. ");
                 Console.WriteLine("4. ");
@@ -52,9 +52,10 @@
         {
             Console.WriteLine("Введите строку");
             string str = Console.ReadLine();
-            for (int i = 0; i<str.Length; i++)
-                if((i+1)%3==0)
-                Console.WriteLine($"{i+1}-й символ строки — {str[i]}");
+            if (str[0] == 'a' && str[1] == 'b' && str[2] == 'c')
+                Console.WriteLine("www" + str.Substring(3));
+            else
+                Console.WriteLine(str + "zzz");
         }
     }
 }
