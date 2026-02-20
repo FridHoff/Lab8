@@ -14,7 +14,7 @@ namespace Lab8
                 Console.WriteLine("1. (10)Дана строка. Если она начинается на 'abc', то заменить их на 'www', иначе добавить в конец строки 'zzz'");
                 Console.WriteLine("2. (15)Дана строка. Определить, сдержит ли строка только символы 'a', 'b', 'c' или нет");
                 Console.WriteLine("3. (28)Вывести слова, в которых заменить каждую большую букву одноименной малой; удалить все символы, не являющиеся буквами или цифрами; вывести в алфавитном порядке все гласные буквы, входящие в каждое слово строки.");
-                Console.WriteLine("4. (33)");
+                Console.WriteLine("4. (33)Дана строка, содержащая полное имя файла (например, 'c:\\WebServers\\home\\testsite\\www\\myfile.txt'). Выделите из этой строки имя файла без расширения.");
                 Console.WriteLine("Esc. Выход");
                 choice = Console.ReadKey().Key;
                 switch (choice)
@@ -42,7 +42,7 @@ namespace Lab8
                         break;
                     case ConsoleKey.D4:
                         Console.WriteLine();
-                        //Task36();
+                        Task33();
                         Console.WriteLine();
                         Console.WriteLine("Для продолжения нажмите любую клавишу...");
                         Console.ReadKey();
@@ -107,6 +107,13 @@ namespace Lab8
                 String s = new String(charArray);
                 Console.Write($"{s} \t");
             }
+        }
+        static void Task33()
+        {
+            string path = "c:\\WebServers\\home\\testsite\\www\\myfile.txt";
+            Console.WriteLine("Путь к файлу: "+path);
+            string[] name = path.Split('\\');
+            Console.WriteLine("Наименование файла: " + name[name.Length - 1].Split('.')[0]);
         }
     }
 }
